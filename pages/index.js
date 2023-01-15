@@ -45,7 +45,9 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
         linkName="/search?purpose=for-sale"
         imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
       />
-      {propertiesForSale.map((property) => <Property property={property} key={property.id} />)}
+      <Flex flexWrap="wrap">
+        {propertiesForSale.map((property) => <Property property={property} key={property.id} />)}
+      </Flex>
     </Box>
   )
 }
