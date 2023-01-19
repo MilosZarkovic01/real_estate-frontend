@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Flex, Select, Box, Text, Input, Spinner, Icon, Button, filter } from '@chakra-ui/react';
-import  Router  from "next/router";
+import Router from "next/router";
 import { MdCancel } from 'react-icons/md';
 import Image from "next/image";
 
@@ -17,7 +17,10 @@ const SearchFilters = () => {
         const values = getFilterValues(filterValues)
 
         values.forEach((item) => {
-            query[item.name] = item.value
+            if (item.value && filterValues?.[item.name]) {
+                query[item.name] = item.value
+            }
+
         })
 
         Router.push({ pathname: path, query })
